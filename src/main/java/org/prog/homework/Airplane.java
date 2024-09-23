@@ -13,10 +13,11 @@ public class   Airplane {
     public void weFly() {
         System.out.println(airline + "Airplane fly....");
     }
-    public void weFly(String destination,String startingFrom,String passingThrough,String withPassengers){
 
-    System.out.println("Fly starting from"+ "  " + destination+ " passing Through "+passingThrough+
-    "to"+ withPassengers);
+    public void weFly(String destination, String startingFrom, String passingThrough, String withPassengers) {
+
+        System.out.println("Fly starting from" + "  " + destination + " passing Through " + passingThrough +
+                "to" + withPassengers);
 
     }
 
@@ -25,11 +26,11 @@ public class   Airplane {
         if (obg instanceof Airplane) {
             boolean match = this.number.equals(((Airplane) obg).number) &&
                     this.airline.equals(((Airplane) obg).airline);
-            return match;
+            return true;
         }
         return false;
-    }
 
+}
     @Override
     public int hashCode() {
         return (this.number + this.airline).hashCode();

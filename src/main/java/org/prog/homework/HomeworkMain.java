@@ -7,15 +7,14 @@ public class HomeworkMain {
         Airplane airplane = new Airplane();
         Airplane airline = airplane;
         airplane.airline = "Condor";
-
-
         Airplane number = airplane;
         airplane.number = "EEEE";
-        System.out.println();
-        System.out.println("flight Airplane number is" + number.number);
-        System.out.println("flight Airplane airline is" + number.airline);
-        airplane.weFly();
 
+        System.out.println();
+        System.out.println("flight Airplane number is " + number.number);
+        System.out.println("flight Airplane airline is " + number.airline);
+
+        airplane.weFly();
         airplane.weFly(" Halifax ", " Halifax ",
         " Frankfurt ", " Paris ");
 
