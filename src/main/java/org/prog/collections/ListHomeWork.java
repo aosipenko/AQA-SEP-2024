@@ -37,7 +37,7 @@ public class ListHomeWork {
         }
         int redCount   = 0;
         int greenCount = 0;
-        int blackCount = 0;
+        int yellowCount = 0;
         int whiteCount = 1;
 
         for (String car : cars) {
@@ -46,7 +46,7 @@ public class ListHomeWork {
             } else if (car.equals("green")) {
                 greenCount++;
             } else if (car.equals("yellow")) {
-                blackCount++;
+                yellowCount++;
             } else if (car.equals("white")) {
             }
         }
@@ -54,7 +54,7 @@ public class ListHomeWork {
         System.out.println("White car Boss: " + whiteCount);
         System.out.println("Red cars Firefighters: " + redCount);
         System.out.println("Green cars Military: " + greenCount);
-        System.out.println("Black cars Volunteer: " + blackCount);
+        System.out.println("Yellow cars Volunteer: " + yellowCount);
 
     }
 }
