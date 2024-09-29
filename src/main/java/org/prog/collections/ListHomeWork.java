@@ -30,25 +30,32 @@ public class ListHomeWork {
             cars.add("green");
         }
         for (int i = 0; i < 334; i++) {
-            cars.add("black");
+            cars.add("yellow");
+        }
+        for (int i = 0; i < 1; i++) {
+            cars.add("white");
         }
         int redCount   = 0;
         int greenCount = 0;
         int blackCount = 0;
+        int whiteCount = 1;
 
         for (String car : cars) {
             if (car.equals("red")) {
                 redCount++;
             } else if (car.equals("green")) {
                 greenCount++;
-            } else if (car.equals("black")) {
+            } else if (car.equals("yellow")) {
                 blackCount++;
+            } else if (car.equals("white")) {
             }
         }
-        System.out.println("Red cars:" + redCount);
-        System.out.println("Green cars:" + greenCount);
-        System.out.println("Black cars:" + blackCount);
-        System.out.println(cars.size());
+        System.out.println("Cars " + cars.size());
+        System.out.println("White car Boss: " + whiteCount);
+        System.out.println("Red cars Firefighters: " + redCount);
+        System.out.println("Green cars Military: " + greenCount);
+        System.out.println("Black cars Volunteer: " + blackCount);
+
     }
 }
 
