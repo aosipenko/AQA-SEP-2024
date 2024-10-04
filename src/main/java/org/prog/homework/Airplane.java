@@ -15,7 +15,7 @@ public class Airplane {
     @Override
     public boolean equals(Object object) {
         if(object instanceof  Airplane) {
-           if(this.airCompany == ((Airplane) object).airCompany && this.flightNumber == ((Airplane) object).flightNumber){
+           if(this.airCompany.equals(((Airplane) object).airCompany) && this.flightNumber == ((Airplane) object).flightNumber){
                return true;
            } return false;
         } else return false;
