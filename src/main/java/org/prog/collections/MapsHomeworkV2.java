@@ -2,15 +2,12 @@ package org.prog.collections;
 
 import org.prog.inheritance.DemoCar;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 //TODO: create Map which will allow you to track car owners and cars they own
 //TODO: At least one car must be owned by two owners
 //TODO: print owners that share cars
-public class MapsHomework {
+public class MapsHomeworkV2 {
 
     public static void main(String[] args) {
         DemoCar coOwnedDemoCar = new DemoCar("red");
@@ -31,25 +28,30 @@ public class MapsHomework {
         ownersAndCars.get(jane).add(new DemoCar("yellow"));
         ownersAndCars.get(bob).add(new DemoCar("green"));
 
-        Set<CarOwner> ownersWithSameCars = new HashSet<>();
-        Set<DemoCar> temporaryDemoCars = new HashSet<>();
+        Set<CarOwner> ownersOfSeveralCars = new HashSet<>();
+        List<DemoCar> allDemoCars = new ArrayList<>();
+
+        for (Set<DemoCar> c : ownersAndCars.values()) {
+            allDemoCars.addAll(c);
+        }
+
+        Set<DemoCar> coOwnedDemoCars = new HashSet<>();
+        
+        for (DemoCar c : allDemoCars) {
+            if (Collections.frequency(allDemoCars, c) > 1) {
+                coOwnedDemoCars.add(c);
+            }
+        }
+
         for (Map.Entry<CarOwner, Set<DemoCar>> entry : ownersAndCars.entrySet()) {
-            temporaryDemoCars = entry.getValue();
-            for (Map.Entry<CarOwner, Set<DemoCar>> entrySecondary : ownersAndCars.entrySet()) {
-                if (entrySecondary.getKey().equals(entry.getKey())) {
-                    System.out.println("skip it");
-                } else {
-                    for (DemoCar demoCar : entrySecondary.getValue()) {
-                        if (temporaryDemoCars.contains(demoCar)) {
-                            ownersWithSameCars.add(entry.getKey());
-                            ownersWithSameCars.add(entrySecondary.getKey());
-                        }
-                    }
+            for (DemoCar demoCarWithMultipleOwners : coOwnedDemoCars) {
+                if (entry.getValue().contains(demoCarWithMultipleOwners)) {
+                    ownersOfSeveralCars.add(entry.getKey());
                 }
             }
         }
 
-        for (CarOwner owner : ownersWithSameCars){
+        for (CarOwner owner : ownersOfSeveralCars) {
             System.out.println(owner.firstName + " " + owner.lastName);
         }
     }
